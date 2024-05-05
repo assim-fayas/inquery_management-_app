@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EnquiryListComponent } from './pages/home/enquiry-list/enquiry-list.component';
+import { NewEnquiryComponent } from './pages/home/new-enquiry/new-enquiry.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'home',component:EnquiryListComponent},
+  {path:'newEnquiry',component:NewEnquiryComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
