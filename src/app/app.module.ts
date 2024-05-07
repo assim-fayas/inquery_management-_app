@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NewEnquiryComponent } from './pages/home/new-enquiry/new-enquiry.component';
 import { EnquiryListComponent } from './pages/home/enquiry-list/enquiry-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

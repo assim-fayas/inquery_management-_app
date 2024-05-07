@@ -9,7 +9,7 @@ export interface Enquiry{
     data:Status[]
 }
 
- interface EnqueryStatus{
+ export interface EnqueryStatus{
     enquiryStatusId:number,
     enquiryStatus:string
 
@@ -30,4 +30,24 @@ export interface EnquerySubject{
     message:string,
     result:boolean,
     data:subjectStatus[]
+}
+
+export interface EnquiryModel{
+    
+  enquiryId: number,
+  customerName: string,
+  contactNo: string,
+  altContactNo: string,
+  email: string,
+  enquiryStatusId: number,
+  enquirySubjectId: number,
+  createdDate:Date,
+  naration: string
+}
+
+
+export interface EnquiryModelResponse{
+    message:string,
+    result:boolean,
+    data:Enquiry[]
 }
