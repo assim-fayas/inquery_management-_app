@@ -91,7 +91,24 @@ getAllStatus(){
 }
 
 
+onReset(){
+if(confirm()){
+  this.enquiryObj={
+    enquiryId: 0,
+    customerName: '',
+    contactNo: '',
+    altContactNo: '',
+    email: '',
+    enquiryStatusId: 0,
+    enquirySubjectId: 0,
+    createdDate:new Date(),
+    naration: ''
+  }
+}else{
+  return
+}
 
+}
 
 
 }
