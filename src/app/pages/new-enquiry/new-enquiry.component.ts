@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./new-enquiry.component.css']
 })
 export class NewEnquiryComponent implements OnInit {
+  
 ngOnInit(): void {
   forkJoin([this.getAllSubject(), this.getAllStatus()])
 }
@@ -39,20 +40,23 @@ this.enquiryObj.contactNo=form.controls['contactNo']?.value
 this.enquiryObj.email=form.controls['email']?.value
 this.enquiryObj.enquiryStatusId=form.controls['enquiryStatusId']?.value
 this.enquiryObj.enquirySubjectId=form.controls['enquirySubjectId']?.value
-this.enquiryObj.createdDate=form.controls['createdDate']?.value
 this.enquiryObj.naration=form.controls['naration']?.value
+this.enquiryObj.altContactNo=form.controls['altContactNo']?.value
 console.log(this.enquiryObj);
-;
+
+this.apiService.addEnquiry(this.enquiryObj).subscribe({
+  next:(res)=>{
+    console.log(res);
+    
+  },
+  error:(err)=>{
+    console.log(err);
+    
+  }
+})
 
   
 }
-
-
-
-
-
-
-
 
 
 
@@ -69,8 +73,8 @@ getAllSubject(){
     }
   })
 
-
 }
+
 
 getAllStatus(){
   this.apiService.getAllEnquiriesStatus().subscribe({
@@ -85,5 +89,9 @@ getAllStatus(){
     }
   })
 }
+
+
+
+
 
 }

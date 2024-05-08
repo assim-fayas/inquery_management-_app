@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import{HttpClient}from '@angular/common/http'
 import { environment } from '../environments/environment';
 import { catchError, map, throwError } from 'rxjs';
-import { EnquerySubject, Enquiry, EnquiryStatuses} from '../model/model';
+import { EnquerySubject, Enquiry, EnquiryModel, EnquiryModelResponse, EnquiryStatuses, FIlterModel, FIlterModelResponse} from '../model/model';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +46,31 @@ getAllEnquiriesSubject(){
     })
   )
 }
+
+
+addEnquiry(enqData:EnquiryModel){
+  return this.http.post<EnquiryModelResponse>(`${this.api}/AddNewEnquiry`,enqData).pipe(
+    map((res)=>{
+      return res
+    }),
+  catchError((err)=>{
+    return throwError(()=>new Error(err))
+  })
+
+)}
+
+
+filterEnquiry(filterObj:FIlterModel){
+return this.http.post<FIlterModelResponse>(`${this.api}/FilterEnquries`,filterObj).pipe(
+  map((res)=>{
+    return res
+  }),
+  catchError((error)=>{
+    return throwError(()=>error)
+  })
+)
+}
+
+
 
 }

@@ -1,0 +1,63 @@
+<div class="flex justify-center">
+<div class="bg-slate-400 m-5 md:w-[80%] mb-2 rounded-md">
+
+<div class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-1">
+
+<div>
+
+
+    <input type="text"  placeholder="name" name="customerName" [(ngModel)]="filterObj.customerName"  class="m-2 pl-2 rounded-md">
+
+</div>
+<div>
+
+
+    <input type="tel"  placeholder="contactNo" name="contactNo" [(ngModel)]="filterObj.contactNo"   class="m-2 pl-2 rounded-md">
+
+</div>
+<div>
+
+
+    <input type="email"  placeholder="email" name="email" [(ngModel)]="filterObj.email" class="m-2 pl-2 rounded-md">
+
+</div>
+<div >
+    
+    <select required ngModel name="enquirySubject"  [(ngModel)]="filterObj.enquirySubject" class="form-select m-2 pl-2 rounded-md shadow-sm ">
+        <option  value="">Select Subject</option>
+        <option *ngFor="let item of enquirySub" [value]="item.enquirySubjectId">{{item.enquirySubject}}</option>
+     
+    </select>
+</div>
+<div>
+  
+    <select required  [(ngModel)]="filterObj.enquiryStatus" name="enquiryStatus" class="form-select m-2 pl-2 rounded-md shadow-sm ">
+        <option  value="">Select Status</option>
+        <option *ngFor="let item of enquiryStatus" [value]="item.enquiryStatusId">{{item.enquiryStatus}}</option>
+     
+    </select>
+</div>
+<div>
+
+
+    <input type="date"  name="fromDate" [(ngModel)]="filterObj.fromDate"    class="m-2 pl-2 rounded-md">
+
+</div>
+<div>
+
+
+    <input type="date"  name="toDate" [(ngModel)]="filterObj.toDate"  class="m-2 pl-2 rounded-md">
+
+</div>
+<div class="flex sm:justify-center  md:justify-evenly  mb-4 mt-2 md:-ml-20  gap-3 ml-2">
+    <div> <button class="bg-red-500 px-3 py-1  md:ml-9   rounded-md hover:bg-red-700 text-sm" type="reset" (click)="onReset()">Reset</button> </div>
+    <div> <button class="bg-green-600 px-3 py-1  md:-ml-24 rounded-md hover:bg-green-700 text-sm" type="button" (click)="onSearch()">Search</button></div>
+   
+</div>
+
+</div>
+
+
+
+</div>
+</div>

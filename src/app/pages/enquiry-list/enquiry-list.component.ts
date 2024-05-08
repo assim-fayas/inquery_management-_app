@@ -39,4 +39,15 @@ getAllEnquiry(){
   navigaeToEnquiryList(){
     this.router.navigate(['newEnquiry'])
   }
+
+
+  filteredResults(value:any){
+const data=value.data
+this.enquiries=data
+
+  }
+
+  filterValueReset(value:boolean){
+    this.getAllEnquiry()
+  }
 }

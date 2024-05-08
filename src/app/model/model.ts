@@ -1,6 +1,8 @@
  export interface Status{
     customerName:string,
     enquirySubject:string
+    createdDate:Date
+
 
 }
 export interface Enquiry{
@@ -47,6 +49,20 @@ export interface EnquiryModel{
 
 
 export interface EnquiryModelResponse{
+    message:string,
+    result:boolean,
+    data:Enquiry[]
+}
+export interface FIlterModel{
+    customerName?: string,
+  contactNo?: string,
+  email?: string,
+  enquiryStatus?: number|null,
+  enquirySubject?: number|null,
+  fromDate: Date|null,
+  toDate: Date|null
+}
+export interface FIlterModelResponse{
     message:string,
     result:boolean,
     data:Enquiry[]
